@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'sidemenu.dart';
 
 enum BusLine { yellow, red, blue }
 
@@ -111,7 +112,7 @@ class _BusStopPageState extends State<BusStopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: _buildEndDrawer(),
+      endDrawer: const SideMenu(),
       body: SafeArea(
         child: Column(
           children: [
@@ -459,27 +460,6 @@ class _BusStopPageState extends State<BusStopPage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildEndDrawer() {
-    return Drawer(
-      child: SafeArea(
-        child: Column(
-          children: [
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.person)),
-              title: Text('Profile'),
-            ),
-            const Divider(),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () => Navigator.pop(context),
-            ),
-          ],
-        ),
       ),
     );
   }

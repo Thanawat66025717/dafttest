@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sidemenu.dart';
 
 class RoutePage extends StatefulWidget {
   const RoutePage({super.key});
@@ -32,7 +33,7 @@ class _RoutePageState extends State<RoutePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: _buildEndDrawer(),
+      endDrawer: const SideMenu(),
       body: SafeArea(
         child: Column(
           children: [
@@ -168,34 +169,6 @@ class _RoutePageState extends State<RoutePage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildEndDrawer() {
-    return Drawer(
-      child: SafeArea(
-        child: Column(
-          children: [
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.person)),
-              title: Text('Profile'),
-              subtitle: Text('ดูและแก้ไขข้อมูลส่วนตัว'),
-            ),
-            const Divider(),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Setting'),
-              onTap: () => Navigator.pop(context),
-            ),
-            const Spacer(),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () => Navigator.pop(context),
-            ),
-          ],
-        ),
       ),
     );
   }

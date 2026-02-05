@@ -7,6 +7,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:projectapp/upbus-page.dart';
 import 'services/route_planner_service.dart';
+import 'sidemenu.dart';
 
 class PlanPage extends StatefulWidget {
   const PlanPage({super.key});
@@ -158,7 +159,7 @@ class _PlanPageState extends State<PlanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: _buildEndDrawer(),
+      endDrawer: const SideMenu(),
       backgroundColor: Colors.grey.shade50,
       body: SafeArea(
         child: Column(
@@ -1298,27 +1299,6 @@ class _PlanPageState extends State<PlanPage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildEndDrawer() {
-    return Drawer(
-      child: SafeArea(
-        child: Column(
-          children: [
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.person)),
-              title: Text('Profile'),
-            ),
-            const Divider(),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () => Navigator.pop(context),
-            ),
-          ],
-        ),
       ),
     );
   }
